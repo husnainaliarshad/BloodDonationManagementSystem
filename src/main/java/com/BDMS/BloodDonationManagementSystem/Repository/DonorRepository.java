@@ -1,10 +1,10 @@
-package com.BDMS.BloodDonationManagementSystem.Repository;
-
-
-import com.BDMS.BloodDonationManagementSystem.Model.Donor;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import com.BDMS.BloodDonationManagementSystem.Model.Donor;
+import java.util.Optional;
 
 public interface DonorRepository extends MongoRepository<Donor, String> {
-    Donor findByEmail(String email); // Custom query to find donor by email
-}
+    Optional<Donor> findByEmail(String email);
 
+    // ✅ Prevent duplicate email registrations
+    boolean existsByEmail(String email);
+}

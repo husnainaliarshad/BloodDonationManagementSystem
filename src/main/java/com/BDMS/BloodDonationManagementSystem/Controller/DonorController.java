@@ -3,8 +3,14 @@ package com.BDMS.BloodDonationManagementSystem.Controller;
 import com.BDMS.BloodDonationManagementSystem.Service.DonorService;
 import com.BDMS.BloodDonationManagementSystem.Model.Donor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+
+import javax.swing.plaf.TreeUI;
 
 @RestController
 @RequestMapping("/api/donors")
@@ -21,7 +27,10 @@ public class DonorController {
     // Get a donor by ID
     @GetMapping("/{id}")
     public Donor getDonorById(@PathVariable String id) {
-        return donorService.getDonorById(id);
+        
+        Donor get = donorService.getDonorById(id);
+       
+        return get;
     }
 
     // Create a new donor
@@ -43,11 +52,16 @@ public class DonorController {
         return "Donor deleted successfully";
     }
 
-    // Find donor by email
     @GetMapping("/email/{email}")
-    public Donor getDonorByEmail(@PathVariable String email) {
-        return donorService.getDonorByEmail(email);
+public ResponseEntity<Donor> getDonorByEmail(@PathVariable String email) {
+    Donor donor = donorService.getDonorByEmail(email);
+
+    if (donor == null) {
+        return ResponseEntity.notFound().build(); // ✅ Returns 404 if donor not found
     }
+
+    return ResponseEntity.ok(donor); // ✅ Returns 200 OK with donor details
+}
 
     // Check donor eligibility
     @GetMapping("/{id}/eligibility")
@@ -60,4 +74,25 @@ public class DonorController {
     public Donor updateLastDonation(@PathVariable String id, @RequestParam String donationDate) {
         return donorService.updateLastDonationDate(id, donationDate);
     }
+
+    @GetMapping("/me")
+    public ResponseEntity<?> getDonorProfile(@RequestParam String email) {
+        Donor donor = donorService.getDonorByEmail(email);
+        if (donor == null) {
+            return ResponseEntity.status(404).body(Map.of("message", "User not found"));
+        }
+    
+        // ✅ Ensure no `null` values (Replace `null` with `"N/A"`)
+        String lastDonationDate = (donor.getLastDonationDate() != null) ? donor.getLastDonationDate() : "N/A";
+    
+        return ResponseEntity.ok(Map.of(
+            "name", donor.getName(),
+            "email", donor.getEmail(),
+            "bloodType", donor.getBloodType(),
+            "lastDonationDate", lastDonationDate // ✅ No more `null`
+        ));
+    }
+    
+
+
 }

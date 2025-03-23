@@ -2,6 +2,8 @@ package com.BDMS.BloodDonationManagementSystem.Service;
 
 import com.BDMS.BloodDonationManagementSystem.Model.Donor;
 import com.BDMS.BloodDonationManagementSystem.Repository.DonorRepository;
+
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.time.LocalDate;
@@ -20,6 +22,7 @@ public class DonorService {
 
     // Get donor by ID
     public Donor getDonorById(String id) {
+        System.out.println(id);
         return donorRepository.findById(id).orElse(null);
     }
 
@@ -48,8 +51,9 @@ public class DonorService {
 
     // Find donor by email
     public Donor getDonorByEmail(String email) {
-        return donorRepository.findByEmail(email);
+        return donorRepository.findByEmail(email).orElse(null); // ✅ Returns Donor or null if not found
     }
+    
 
     // Check if donor is eligible to donate
     public Boolean checkEligibility(String id) {
