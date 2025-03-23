@@ -1,0 +1,57 @@
+{
+  "info": {
+      "name": "Blood Donation API",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+      {
+          "name": "Donor API",
+          "item": [
+              { "name": "Get All Donors", "request": { "method": "GET", "url": "{{base_url}}/api/donors" } },
+              { "name": "Get Donor by ID", "request": { "method": "GET", "url": "{{base_url}}/api/donors/65f4b3c7e4d3a8b7d2f91234" } },
+              { "name": "Create Donor", "request": { "method": "POST", "url": "{{base_url}}/api/donors", "body": { "mode": "raw", "raw": "{\"name\":\"John Doe\",\"email\":\"john@example.com\",\"bloodType\":\"O+\"}" } } },
+              { "name": "Update Donor", "request": { "method": "PUT", "url": "{{base_url}}/api/donors/65f4b3c7e4d3a8b7d2f91234", "body": { "mode": "raw", "raw": "{\"name\":\"Updated Name\",\"email\":\"updated@example.com\"}" } } },
+              { "name": "Delete Donor", "request": { "method": "DELETE", "url": "{{base_url}}/api/donors/65f4b3c7e4d3a8b7d2f91234" } }
+          ]
+      },
+      {
+          "name": "Blood Bank API",
+          "item": [
+              { "name": "Get All Blood Banks", "request": { "method": "GET", "url": "{{base_url}}/api/bloodbanks" } },
+              { "name": "Get Blood Bank by ID", "request": { "method": "GET", "url": "{{base_url}}/api/bloodbanks/65f4b3c7e4d3a8b7d2f91234" } },
+              { "name": "Create Blood Bank", "request": { "method": "POST", "url": "{{base_url}}/api/bloodbanks", "body": { "mode": "raw", "raw": "{\"name\":\"Central Blood Bank\",\"location\":\"Downtown\",\"availableUnits\":100}" } } },
+              { "name": "Update Blood Bank", "request": { "method": "PUT", "url": "{{base_url}}/api/bloodbanks/65f4b3c7e4d3a8b7d2f91234/update-units?units={newUnits}" } },
+              { "name": "Delete Blood Bank", "request": { "method": "DELETE", "url": "{{base_url}}/api/bloodbanks/65f4b3c7e4d3a8b7d2f91234" } }
+          ]
+      },
+      {
+          "name": "Hospital API",
+          "item": [
+              { "name": "Get All Hospitals", "request": { "method": "GET", "url": "{{base_url}}/api/hospitals" } },
+              { "name": "Get Hospital by ID", "request": { "method": "GET", "url": "{{base_url}}/api/hospitals/65f4b3c7e4d3a8b7d2f91234" } },
+              { "name": "Create Hospital", "request": { "method": "POST", "url": "{{base_url}}/api/hospitals", "body": { "mode": "raw", "raw": "{\"hospitalName\":\"City Hospital\",\"location\":\"Downtown\",\"contactNumber\":\"+123456789\"}" } } },
+              { "name": "Update Hospital", "request": { "method": "PUT", "url": "{{base_url}}/api/hospitals/65f4b3c7e4d3a8b7d2f91234", "body": { "mode": "raw", "raw": "{\"hospitalName\":\"Updated Hospital\",\"location\":\"Uptown\"}" } } },
+              { "name": "Delete Hospital", "request": { "method": "DELETE", "url": "{{base_url}}/api/hospitals/65f4b3c7e4d3a8b7d2f91234" } }
+          ]
+      },
+      {
+          "name": "Blood Request API",
+          "item": [
+              { "name": "Get All Blood Requests", "request": { "method": "GET", "url": "{{base_url}}/api/bloodrequests" } },
+              { "name": "Get Blood Request by ID", "request": { "method": "GET", "url": "{{base_url}}/api/bloodrequests/65f4b3c7e4d3a8b7d2f91234" } },
+              { "name": "Create Blood Request", "request": { "method": "POST", "url": "{{base_url}}/api/bloodrequests", "body": { "mode": "raw", "raw": "{\"hospitalId\":\"123\",\"bloodType\":\"A+\",\"quantity\":5}" } } },
+              { "name": "Update Blood Request Status", "request": { "method": "PUT", "url": "{{base_url}}/api/bloodrequests/65f4b3c7e4d3a8b7d2f91234/update-status?status={status}" } },
+              { "name": "Delete Blood Request", "request": { "method": "DELETE", "url": "{{base_url}}/api/bloodrequests/65f4b3c7e4d3a8b7d2f91234" } }
+          ]
+      },
+      {
+          "name": "Notification API",
+          "item": [
+              { "name": "Get All Notifications", "request": { "method": "GET", "url": "{{base_url}}/api/notifications" } },
+              { "name": "Create Notification", "request": { "method": "POST", "url": "{{base_url}}/api/notifications", "body": { "mode": "raw", "raw": "{\"donorId\":\"123\",\"message\":\"Urgent blood request!\"}" } } },
+              { "name": "Mark Notification as Read", "request": { "method": "PUT", "url": "{{base_url}}/api/notifications/65f4b3c7e4d3a8b7d2f91234/mark-as-read" } },
+              { "name": "Delete Notification", "request": { "method": "DELETE", "url": "{{base_url}}/api/notifications/65f4b3c7e4d3a8b7d2f91234" } }
+          ]
+      }
+  ]
+}

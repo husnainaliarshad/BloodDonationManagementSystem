@@ -1,4 +1,4 @@
-package com.BDMS.BloodDonationManagementSystem;
+package com.BDMS.BloodDonationManagementSystem.Model;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
