@@ -1,0 +1,77 @@
+{
+  "info": {
+    "name": "Blood Donation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Donor API",
+      "item": [
+        { "name": "Get All Donors", "request": { "method": "GET", "url": "{{base_url}}/api/donors" } },
+        { "name": "Get Donor by ID", "request": { "method": "GET", "url": "{{base_url}}/api/donors/:id" } },
+        { "name": "Get Donor by Email", "request": { "method": "GET", "url": "{{base_url}}/api/donors/email/:email" } },
+        { "name": "Create Donor", "request": { "method": "POST", "url": "{{base_url}}/api/donors" } },
+        { "name": "Update Donor", "request": { "method": "PUT", "url": "{{base_url}}/api/donors/:id" } },
+        { "name": "Delete Donor", "request": { "method": "DELETE", "url": "{{base_url}}/api/donors/:id" } }
+      ]
+    },
+    {
+      "name": "Blood Bank API",
+      "item": [
+        { "name": "Get All Blood Banks", "request": { "method": "GET", "url": "{{base_url}}/api/bloodbanks" } },
+        { "name": "Get Blood Bank by ID", "request": { "method": "GET", "url": "{{base_url}}/api/bloodbanks/:id" } },
+        { "name": "Create Blood Bank", "request": { "method": "POST", "url": "{{base_url}}/api/bloodbanks" } },
+        { "name": "Update Blood Bank", "request": { "method": "PUT", "url": "{{base_url}}/api/bloodbanks/:id/update-units?units={newUnits}" } },
+        { "name": "Delete Blood Bank", "request": { "method": "DELETE", "url": "{{base_url}}/api/bloodbanks/:id" } }
+      ]
+    },
+    {
+      "name": "Hospital API",
+      "item": [
+        { "name": "Get All Hospitals", "request": { "method": "GET", "url": "{{base_url}}/api/hospitals" } },
+        { "name": "Get Hospital by ID", "request": { "method": "GET", "url": "{{base_url}}/api/hospitals/:id" } },
+        { "name": "Create Hospital", "request": { "method": "POST", "url": "{{base_url}}/api/hospitals" } },
+        { "name": "Update Hospital", "request": { "method": "PUT", "url": "{{base_url}}/api/hospitals/:id" } },
+        { "name": "Delete Hospital", "request": { "method": "DELETE", "url": "{{base_url}}/api/hospitals/:id" } }
+      ]
+    },
+    {
+      "name": "Blood Request API",
+      "item": [
+        { "name": "Get All Blood Requests", "request": { "method": "GET", "url": "{{base_url}}/api/bloodrequests" } },
+        { "name": "Get Blood Request by ID", "request": { "method": "GET", "url": "{{base_url}}/api/bloodrequests/:id" } },
+        { "name": "Create Blood Request", "request": { "method": "POST", "url": "{{base_url}}/api/bloodrequests" } },
+        { "name": "Update Blood Request Status", "request": { "method": "PUT", "url": "{{base_url}}/api/bloodrequests/:id/update-status?status={status}" } },
+        { "name": "Delete Blood Request", "request": { "method": "DELETE", "url": "{{base_url}}/api/bloodrequests/:id" } }
+      ]
+    },
+    {
+      "name": "Donation API",
+      "item": [
+        { "name": "Get All Donations", "request": { "method": "GET", "url": "{{base_url}}/api/donations" } },
+        { "name": "Get Donation by ID", "request": { "method": "GET", "url": "{{base_url}}/api/donations/:id" } },
+        { "name": "Create Donation", "request": { "method": "POST", "url": "{{base_url}}/api/donations" } },
+        { "name": "Delete Donation", "request": { "method": "DELETE", "url": "{{base_url}}/api/donations/:id" } }
+      ]
+    },
+    {
+      "name": "Notification API",
+      "item": [
+        { "name": "Get All Notifications", "request": { "method": "GET", "url": "{{base_url}}/api/notifications" } },
+        { "name": "Create Notification", "request": { "method": "POST", "url": "{{base_url}}/api/notifications" } },
+        { "name": "Mark Notification as Read", "request": { "method": "PUT", "url": "{{base_url}}/api/notifications/:id/mark-as-read" } },
+        { "name": "Delete Notification", "request": { "method": "DELETE", "url": "{{base_url}}/api/notifications/:id" } }
+      ]
+    },
+    {
+      "name": "Admin API",
+      "item": [
+        { "name": "Get All Admins", "request": { "method": "GET", "url": "{{base_url}}/api/admins" } },
+        { "name": "Get Admin by ID", "request": { "method": "GET", "url": "{{base_url}}/api/admins/:id" } },
+        { "name": "Create Admin", "request": { "method": "POST", "url": "{{base_url}}/api/admins" } },
+        { "name": "Update Admin", "request": { "method": "PUT", "url": "{{base_url}}/api/admins/:id" } },
+        { "name": "Delete Admin", "request": { "method": "DELETE", "url": "{{base_url}}/api/admins/:id" } }
+      ]
+    }
+  ]
+}
